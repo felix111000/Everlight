@@ -24,14 +24,14 @@ namespace JavaScriptAlerts
             ele_btn_JSAlert.Click();
 
             WebDriverWait explicitWait = new WebDriverWait(driver, TimeSpan.FromMinutes(2));
-            IAlert alert = explicitWait.Until(d => d.SwitchTo().Alert());
+            IAlert alert = explicitWait.Until(driver => driver.SwitchTo().Alert());
             if (alert.Text.Contains("I am a JS Alert"))
             {
                 alert.Accept();
             }
 
             // Verify the expected result.
-            string eleText_result = explicitWait.Until(d => driver.FindElement(By.Id("result"))).Text;
+            string eleText_result = explicitWait.Until(driver => driver.FindElement(By.Id("result"))).Text;
             string expected_result = "You successfuly clicked an alert";
             Assert.AreEqual(eleText_result, expected_result);
 
@@ -49,14 +49,14 @@ namespace JavaScriptAlerts
             ele_btn_JSConfirm.Click();
 
             WebDriverWait explicitWait = new WebDriverWait(driver, TimeSpan.FromMinutes(2));
-            IAlert alert = explicitWait.Until(d => d.SwitchTo().Alert());
+            IAlert alert = explicitWait.Until(driver => driver.SwitchTo().Alert());
             if (alert.Text.Contains("I am a JS Confirm"))
             {
                 alert.Accept();
             }
 
             // Verify the expected result.
-            string eleText_result = explicitWait.Until(d => driver.FindElement(By.Id("result"))).Text;
+            string eleText_result = explicitWait.Until(driver => driver.FindElement(By.Id("result"))).Text;
             string expected_result = "You clicked: Ok";
             Assert.AreEqual(eleText_result, expected_result);
 
@@ -74,14 +74,14 @@ namespace JavaScriptAlerts
             ele_btn_JSConfirm.Click();
 
             WebDriverWait explicitWait = new WebDriverWait(driver, TimeSpan.FromMinutes(2));
-            IAlert alert = explicitWait.Until(d => d.SwitchTo().Alert());
+            IAlert alert = explicitWait.Until(driver => driver.SwitchTo().Alert());
             if (alert.Text.Contains("I am a JS Confirm"))
             {
                 alert.Dismiss();
             }
 
             // Verify the expected result.
-            string eleText_result = explicitWait.Until(d => driver.FindElement(By.Id("result"))).Text;
+            string eleText_result = explicitWait.Until(driver => driver.FindElement(By.Id("result"))).Text;
             string expected_result = "You clicked: Cancel";
             Assert.AreEqual(eleText_result, expected_result);
 
@@ -99,7 +99,7 @@ namespace JavaScriptAlerts
             ele_btn_JSPrompt.Click();
 
             WebDriverWait explicitWait = new WebDriverWait(driver, TimeSpan.FromMinutes(2));
-            IAlert alert = explicitWait.Until(d => d.SwitchTo().Alert());
+            IAlert alert = explicitWait.Until(driver => driver.SwitchTo().Alert());
             string inputText = "abc123";
             if (alert.Text.Contains("I am a JS prompt"))
             {
@@ -108,7 +108,7 @@ namespace JavaScriptAlerts
             }
 
             // Verify the expected result.
-            string eleText_result = explicitWait.Until(d => driver.FindElement(By.Id("result"))).Text;
+            string eleText_result = explicitWait.Until(driver => driver.FindElement(By.Id("result"))).Text;
             string expected_result = "You entered: " + inputText;
             Assert.AreEqual(eleText_result, expected_result);
 
@@ -126,7 +126,7 @@ namespace JavaScriptAlerts
             ele_btn_JSPrompt.Click();
 
             WebDriverWait explicitWait = new WebDriverWait(driver, TimeSpan.FromMinutes(2));
-            IAlert alert = explicitWait.Until(d => d.SwitchTo().Alert());
+            IAlert alert = explicitWait.Until(driver => driver.SwitchTo().Alert());
             string inputText = "abc123";
             if (alert.Text.Contains("I am a JS prompt"))
             {
@@ -135,7 +135,7 @@ namespace JavaScriptAlerts
             }
 
             // Verify the expected result.
-            string eleText_result = explicitWait.Until(d => driver.FindElement(By.Id("result"))).Text;
+            string eleText_result = explicitWait.Until(driver => driver.FindElement(By.Id("result"))).Text;
             string expected_result = "You entered: null";
             Assert.AreEqual(eleText_result, expected_result);
 
